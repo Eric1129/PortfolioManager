@@ -15,4 +15,8 @@ export class ApiService {
   getAllCashAccounts(){
     return this.http.get("http://localhost:8000/investment/all");
   }
+  
+  getNetWorth(){
+    return this.http.get("http://localhost:8000/portfolio/networth");
+  }
 }

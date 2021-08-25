@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private apiService: ApiService) { 
+    this.apiService.getNetWorth()
+      .subscribe( (data:any)=>{
+        this.netvalue = data
+      } )
+  }
   title = 'PortfolioManager';
   today = new Date();
   netvalue = 5000;
@@ -30,4 +37,15 @@ export class AppComponent {
   onChange($event:any){
     this.account_number = $event.target.options[$event.target.options.selectedIndex].text;
   }
+
+  makeServiceCall(){
+    // we call the service method by subscribing to it
+    // remember the api call will be async so subscribing responds when it returns
+    // this.typicodeService.getApiData({category:this.category, id:this.id})
+    this.apiService.getNetWorth()
+      .subscribe( (data:any)=>{
+        this.netvalue = data
+      } )
+  }
+  
 }
