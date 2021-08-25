@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateaccountComponent } from './CreateAccount/createaccount.component';
+import { ManageaccountsComponent } from './ManageAccounts/manageaccounts.component';
 
 const routes: Routes = [
-  {path:'create-account', component:CreateaccountComponent},
-  {path:'createaccount',component:CreateaccountComponent}
+  {path:'create-account', component:ManageaccountsComponent},
+  {path:'createaccount',component:ManageaccountsComponent}
 ];
 
 @NgModule({
