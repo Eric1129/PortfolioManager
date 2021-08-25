@@ -15,4 +15,8 @@ export class ApiService {
   getAllCashAccounts(){
     return this.http.get("http://localhost:8000/portfolio/cash_accounts");
   }
+
+  getInvestmentAccountValue(params={account_number: 0}){
+    return this.http.get(`http://localhost:8000/investment/value/${params.account_number}`)
+  }
 }

@@ -9,6 +9,15 @@ import { ApiService } from 'src/app/services/api.service'
 export class AppComponent {
 
   constructor(private apiService:ApiService){
+    this.apiService.getAllCashAccounts()
+    .subscribe( (data: any) => {
+      this.cashAccounts = data
+    } )
+
+    this.apiService.getAllInvestmentAccounts()
+    .subscribe( (data: any) => {
+      this.investmentAccounts = data
+    } )
 
   }
 
@@ -21,15 +30,18 @@ export class AppComponent {
     {accountNumber: 53893589},
     {accountNumber: 54743353}
 
-  // ];
-  cashAccounts:object = this.apiService.getAllCashAccounts();
-  // investmentAccounts = [
-  //   {accountNumber: 53235255},
-  //   {accountNumber: 45246654},
-  //   {accountNumber: 43262362},
-  //   {accountNumber: 14365425}
-  // ];
-  investmentAccounts:object = this.apiService.getAllInvestmentAccounts();
+   ];
+   
+
+
+  investmentAccounts = [
+    {accountNumber: 53235255},
+    {accountNumber: 45246654},
+    {accountNumber: 43262362},
+    {accountNumber: 14365425}
+  ];
+
+
 
   @Input() account_number:number = 0;
   @Input() value:number = 0;
@@ -38,4 +50,13 @@ export class AppComponent {
   onChange($event:any){
     this.account_number = $event.target.options[$event.target.options.selectedIndex].text;
   }
+
+  retrieveBasicInvestmentData(){
+    this.value=
+  }
+
+  retrieveBasicCashData(){
+
+  }
+
 }

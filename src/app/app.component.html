@@ -14,7 +14,7 @@
   <p>Net Worth : {{netvalue}} USD</p>
   <section>
     <h3>Investment Accounts</h3>
-    <select name='investment_accounts'>
+    <select  class="form-control" (change)="onChange($event)">
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
     <button>Go</button>
@@ -22,7 +22,7 @@
     <select class="form-control" (change)="onChange($event)" >
       <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
-    <button >Go</button>
+    <button (click) = 'retrieveBasicCashData()'>Go</button>
 
     <aside>
       <div>Display Account information here</div>
