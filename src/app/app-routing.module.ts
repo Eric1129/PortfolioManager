@@ -4,7 +4,7 @@ import { ManageaccountsComponent } from './ManageAccounts/manageaccounts.compone
 
 const routes: Routes = [
   {path:'manageaccount', component:ManageaccountsComponent},
-];
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
