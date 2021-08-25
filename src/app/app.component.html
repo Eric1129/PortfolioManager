@@ -18,13 +18,21 @@
   <section>
     <h3>Investment Accounts</h3>
     <select name='investment_accounts'>
-      <option value=""></option>
+      <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
+    <button>Go</button>
     <h3>Cash Accounts</h3>
-    <select name='cash_accounts'>
-      <option value=""></option>
+    <select class="form-control" (change)="onChange($event)" >
+      <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
+    <button >Go</button>
 
+    <aside>
+      <div>Display Account information here</div>
+      <p>Account Number: {{account_number}}</p>
+      <p>Account Type: {{account_type}}</p>
+      <p>Account Value: {{value}}</p>
+    </aside>
   </section>
   <!-- here we can bind to the daa models -->
   <!-- the | is 'pipe' in this case for date -->
