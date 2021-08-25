@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title = 'PortfolioManager';
   today = new Date();
+  netvalue = 5000;
   cashAccounts = [
     {accountNumber: 45234242},
     {accountNumber: 44444563},
