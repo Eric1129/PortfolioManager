@@ -13,11 +13,13 @@ export class AppComponent {
   }
 
   title = 'PortfolioManager';
-  // cashAccounts = [
-  //   {accountNumber: 45234242},
-  //   {accountNumber: 44444563},
-  //   {accountNumber: 53893589},
-  //   {accountNumber: 54743353}
+  today = new Date();
+  netvalue = 5000;
+  cashAccounts = [
+    {accountNumber: 45234242},
+    {accountNumber: 44444563},
+    {accountNumber: 53893589},
+    {accountNumber: 54743353}
 
   // ];
   cashAccounts:object = this.apiService.getAllCashAccounts();
