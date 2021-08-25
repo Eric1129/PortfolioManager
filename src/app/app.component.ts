@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service'
 
 @Component({
   selector: 'app-root',
@@ -6,20 +7,27 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PortfolioManager';
-  cashAccounts = [
-    {accountNumber: 45234242},
-    {accountNumber: 44444563},
-    {accountNumber: 53893589},
-    {accountNumber: 54743353}
 
-  ];
-  investmentAccounts = [
-    {accountNumber: 53235255},
-    {accountNumber: 45246654},
-    {accountNumber: 43262362},
-    {accountNumber: 14365425}
-  ];
+  constructor(private apiService:ApiService){
+
+  }
+
+  title = 'PortfolioManager';
+  // cashAccounts = [
+  //   {accountNumber: 45234242},
+  //   {accountNumber: 44444563},
+  //   {accountNumber: 53893589},
+  //   {accountNumber: 54743353}
+
+  // ];
+  cashAccounts:object = this.apiService.getAllCashAccounts();
+  // investmentAccounts = [
+  //   {accountNumber: 53235255},
+  //   {accountNumber: 45246654},
+  //   {accountNumber: 43262362},
+  //   {accountNumber: 14365425}
+  // ];
+  investmentAccounts:object = this.apiService.getAllInvestmentAccounts();
 
   @Input() account_number:number = 0;
   @Input() value:number = 0;
