@@ -12,6 +12,16 @@ export class AppComponent {
       .subscribe( (data:any)=>{
         this.netvalue = data
       } )
+
+      this.apiService.getAllCashAccounts()
+      .subscribe( (data: any) => {
+        this.cashAccounts = data
+      } )
+  
+      this.apiService.getAllInvestmentAccounts()
+      .subscribe( (data: any) => {
+        this.investmentAccounts = data
+      } )
   }
   title = 'PortfolioManager';
   today = new Date();
@@ -36,7 +46,7 @@ export class AppComponent {
 
 
   @Input() account_number:number = 0;
-  @Input() value:number = 0;
+  @Input() account_value:number = 0;
   @Input() account_type:string = "";
 
   onChange($event:any){
@@ -53,4 +63,19 @@ export class AppComponent {
       } )
   }
   
+  retrieveBasicInvestmentData(){
+    this.account_type = "investment"
+    this.apiService.getInvestmentAccountValue({account_number: this.account_number})
+    .subscribe( (data:any) => {
+      this.account_value = data
+    })
+  }
+
+  retrieveBasicCashData(){
+    this.account_type = "cash"
+    this.apiService.getCashAccountValue({account_number: this.account_number})
+    .subscribe( (data:any) => {
+      this.account_value = data
+    })
+  }
 }
