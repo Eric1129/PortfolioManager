@@ -19,7 +19,7 @@ export class ApiService {
   getInvestmentAccountValue(params={account_number: 0}){
     return this.http.get(`http://localhost:8000/investment/value/${params.account_number}`)
   }
-
+  
   getNetWorth(){
     return this.http.get("http://localhost:8000/portfolio/networth");
   }

@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ManageaccountsComponent } from './ManageAccounts/manageaccounts.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

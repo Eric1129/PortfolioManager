@@ -25,7 +25,7 @@ export class AppComponent {
   }
   title = 'PortfolioManager';
   today = new Date();
-  netvalue = 5000;
+  netvalue = 0;
   cashAccounts = [
     {accountNumber: 45234242},
     {accountNumber: 44444563},
