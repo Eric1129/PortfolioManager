@@ -73,6 +73,22 @@ export class ManageaccountsComponent implements OnInit {
     {accountNumber: 14365425}
   ];
 
+  investment_purchase_cash_account = 0
+
+  investment_purchase_ticker = ''
+
+  investment_purchase_amount = 0
+
+  investment_sale_cash_account = 0;
+
+  investment_sale_ticker = ''
+
+  investment_sale_amount = 0
+
+  cash_withdrawal_amount = 0
+
+  cash_deposit_amount = 0
+
   ngOnInit(): void {
   }
 

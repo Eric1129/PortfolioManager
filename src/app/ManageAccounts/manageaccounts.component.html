@@ -19,6 +19,19 @@
             <!-- <p>Account Type: {{account_type}}</p> -->
             <p>Account Value: {{investment_account_obj.account_value}}</p> 
         </aside>
+
+        <aside>
+            <h5>Purchase Investment</h5>
+            <label for="investment_purchase_cash_account">Enter Cash Account</label>
+            <input [(ngModel)] = investment_purchase_cash_account type="text" id="investment_purchase_cash_account" name="investment_purchase_cash_account"><br>
+
+            <label for="investment_purchase_ticker">Enter Investment Ticker</label>
+            <input [(ngModel)] = investment_purchase_ticker type="text" id="investment_purchase_ticker" name="investment_purchase_ticker"><br>
+
+            <label for="investment_purchase_amount">Enter Amount</label>
+            <input [(ngModel)] = investment_purchase_amount type="text" id="investment_purchase_amount" name="investment_purchase_amount"><br>
+
+        </aside>
     </ng-container>
 
 
@@ -52,8 +65,8 @@
         <p>Your new account number: {{new_account_number_display}}</p>
         <p>Your new account type: {{new_account_type_display}}</p>
     </ng-container>
-    <p>{{new_account_type}}</p>
-    <p>{{new_account_number}}</p>
+    <!-- <p>{{new_account_type}}</p>
+    <p>{{new_account_number}}</p> -->
 
     <h3>Delete Account</h3>
     <label for="fid">Account Number</label><br>
@@ -69,6 +82,8 @@
     <ng-container *ngIf="showDeleteAccountMessage">
         <p>Account {{delete_account_number}} has been deleted</p>
     </ng-container>
-    <p>{{new_account_type}}</p>
-    <p>{{new_account_number}}</p>
+    <!-- <p>{{new_account_type}}</p>
+    <p>{{new_account_number}}</p> -->
+
+
   </form>
