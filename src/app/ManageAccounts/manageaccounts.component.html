@@ -15,20 +15,20 @@
     <button >Add</button>
 
     <h3>Investment Accounts</h3>
-    <select  class="form-control">
+    <select>
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
     <h3>Cash Accounts</h3>
-    <select [(ng-model)] = class="form-control">
+    <select>
       <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicCashData()'>Go</button>
     <aside>
         <div>Display Account information here</div>
-        <p>Account Number: {{account_number}}</p>
+        <!-- <p>Account Number: {{account_number}}</p>
         <p>Account Type: {{account_type}}</p>
-        <p>Account Value: {{account_value}}</p>
+        <p>Account Value: {{account_value}}</p> -->
       </aside>
 
   </form>
