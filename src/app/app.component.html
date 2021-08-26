@@ -14,21 +14,21 @@
   <p>Net Worth : {{netvalue}} USD</p>
   <section>
     <h3>Investment Accounts</h3>
-    <select name='investment_accounts'>
+    <select  class="form-control" (change)="onChange($event)">
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
-    <button>Go</button>
+    <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
     <h3>Cash Accounts</h3>
     <select class="form-control" (change)="onChange($event)" >
       <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
-    <button >Go</button>
+    <button (click) = 'retrieveBasicCashData()'>Go</button>
 
     <aside>
       <div>Display Account information here</div>
       <p>Account Number: {{account_number}}</p>
       <p>Account Type: {{account_type}}</p>
-      <p>Account Value: {{value}}</p>
+      <p>Account Value: {{account_value}}</p>
     </aside>
   </section>
   <!-- here we can bind to the daa models -->
