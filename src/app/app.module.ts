@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ManageaccountsComponent } from './ManageAccounts/manageaccounts.component';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
+import { MarketMoversComponent } from './market-movers/market-movers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ManageaccountsComponent,
-    CashFlowComponent
+    CashFlowComponent,
+    MarketMoversComponent
   ],
   imports: [
     BrowserModule,

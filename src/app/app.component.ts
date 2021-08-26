@@ -13,8 +13,7 @@ export class AppComponent {
       this.retriveTotalCashValue()
   }
   title = 'PortfolioManager';
-  today = new Date();
-  
+  today = Date.now();
 
   @Input() netvalue = 0;
   @Input() totalcashvalue = 0;
@@ -48,6 +47,13 @@ export class AppComponent {
       .subscribe( (data:any)=>{
         this.totalinvestmentvalue = data
       } )
+  }
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.today = Date.now();
+      console.log(this.today);
+    }, 1000);
   }
 
 }
