@@ -44,10 +44,19 @@ export class ApiService {
   getSAP500(){
     return this.http.get("http://localhost:8000/portfolio/marketindices/SAP500");
   }
+  getSAP500Change(){
+    return this.http.get("http://localhost:8000/portfolio/marketindices/SAP500/change");
+  }
   getDWJ(){
     return this.http.get("http://localhost:8000/portfolio/marketindices/DWJ");
   }
+  getDWJChange(){
+    return this.http.get("http://localhost:8000/portfolio/marketindices/DWJ/change");
+  }
   getNSDQ(){
     return this.http.get("http://localhost:8000/portfolio/marketindices/NSDQ");
+  }
+  getNSDQChange(){
+    return this.http.get("http://localhost:8000/portfolio/marketindices/NSDQ/change");
   }
 }

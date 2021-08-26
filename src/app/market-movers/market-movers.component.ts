@@ -8,7 +8,6 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./market-movers.component.css']
 })
 export class MarketMoversComponent implements OnInit {
-  
 
   constructor(private apiService: ApiService) {
     this.retriveSAP500()
@@ -18,6 +17,11 @@ export class MarketMoversComponent implements OnInit {
   SAP = 0.0;
   DWJ = 0.0;
   NASDAQ = 0.0;
+
+  SAPChange = 0.0;
+  DWJChange = 0.0;
+  NASDAQChange = 0.0;
+
   ngOnInit(): void {
     setInterval(() => {
       this.retriveSAP500();
@@ -31,6 +35,10 @@ export class MarketMoversComponent implements OnInit {
       .subscribe( (data:any)=>{
         this.SAP = data
       } )
+      this.apiService.getSAP500Change()
+      .subscribe( (data:any)=>{
+        this.SAPChange = data
+      } )
   }
 
   retriveDWJ(){
@@ -38,12 +46,20 @@ export class MarketMoversComponent implements OnInit {
       .subscribe( (data:any)=>{
         this.DWJ = data
       } )
+      this.apiService.getDWJChange()
+      .subscribe( (data:any)=>{
+        this.DWJChange = data
+      } )
   }
 
   retriveNSDQ(){
     this.apiService.getNSDQ()
       .subscribe( (data:any)=>{
         this.NASDAQ = data
+      } )
+      this.apiService.getNSDQChange()
+      .subscribe( (data:any)=>{
+        this.NASDAQChange = data
       } )
   }
 
