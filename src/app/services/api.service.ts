@@ -33,4 +33,12 @@ export class ApiService {
   getCashAccountValue(params={account_number: 0}){
     return this.http.get(`http://localhost:8000/portfolio/cash_accounts/value/${params.account_number}`)
   }
+
+  createNewAccount(params={account_number: 0, account_type: ''}){
+    return this.http.post("http://localhost:8000/portfolio/addAccount", {accountNumber: params.account_number, accountType: params.account_type});
+  }
+
+  deleteAccount(params={account_number: 0}){
+    return this.http.delete(`http://localhost:8000/portfolio/${params.account_number}`)
+  }
 }

@@ -1,34 +1,74 @@
-<p>Add a new account </p>
+
 
 <form>
-    <label for="fid">Account ID</label><br>
-    <input type="text" id="fid" name="fid"><br>
 
-    <label>Choose an account type:</label><br>
-    <select name="account" id="account">
-        <option value="investment">Investment</option>
-        <option value="cash">Cash</option>
-    </select>
-    <br/>
         <!-- <label for="fvalue">Value</label><br>
     <input type="number" id="fname" name="fname"><br> -->
-    <button >Add</button>
+ 
 
     <h3>Investment Accounts</h3>
-    <select>
+    <select [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
+
+    <ng-container *ngIf="showInvestmentAccountData">
+        <aside>
+            <h4>Investment account information</h4>
+            <p>Account Number: {{account_number_display}}</p>
+            <!-- <p>Account Type: {{account_type}}</p> -->
+            <p>Account Value: {{investment_account_obj.account_value}}</p> 
+        </aside>
+    </ng-container>
+
+
     <h3>Cash Accounts</h3>
-    <select>
+    <select  [(ngModel)]='cash_account_obj.account_number' name='account_number'>
       <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicCashData()'>Go</button>
-    <aside>
-        <div>Display Account information here</div>
-        <!-- <p>Account Number: {{account_number}}</p>
-        <p>Account Type: {{account_type}}</p>
-        <p>Account Value: {{account_value}}</p> -->
-      </aside>
 
+    <ng-container *ngIf="showCashAccountData">
+        <aside>
+            <h4>Cash account information</h4>
+            <p>Account Number: {{account_number_display}}</p>
+            <!-- <p>Account Type: {{account_type}}</p> -->
+            <p>Account Value: {{cash_account_obj.account_value}}</p> 
+        </aside>
+    </ng-container>
+
+
+    <h3>Add new account</h3>
+    <label for="fid">Account Number</label><br>
+    <input [(ngModel)] = new_account_number type="text" id="new_account_number" name="new_account_number"><br>
+
+    <label>Choose an account type:</label><br>
+    <select [(ngModel)] = new_account_type name="new_account_type" id="new_account_type">
+        <option value="investment">Investment</option>
+        <option value="cash">Cash</option>
+    </select>
+    <button (click) = createNewAccount()>Submit</button>
+    <ng-container *ngIf="showNewAccountData">
+        <p>Your new account number: {{new_account_number_display}}</p>
+        <p>Your new account type: {{new_account_type_display}}</p>
+    </ng-container>
+    <p>{{new_account_type}}</p>
+    <p>{{new_account_number}}</p>
+
+    <h3>Delete Account</h3>
+    <label for="fid">Account Number</label><br>
+    <input [(ngModel)] = delete_account_number type="text" id="delete_account_number" name="delete_account_number"><br>
+
+    <button (click) = deleteStart()>Delete</button>
+    <ng-container *ngIf="warnAccountDelete">
+        <p>Are you sure you want to delete this account?</p>
+        <button (click) = deleteYes()>Yes</button>
+        <button (click) = deleteNo()>No</button>
+    </ng-container>
+
+    <ng-container *ngIf="showDeleteAccountMessage">
+        <p>Account {{delete_account_number}} has been deleted</p>
+    </ng-container>
+    <p>{{new_account_type}}</p>
+    <p>{{new_account_number}}</p>
   </form>
