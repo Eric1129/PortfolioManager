@@ -1,0 +1,52 @@
+<!-- here we write our own component template -->
+<article>
+  <nav class="navbar">
+    <!-- links go here -->
+    <a class="" routerLink='/cash-flow'>Cash Flow</a> |
+    <a routerLink='/market-movers'>Market Movers</a> |
+    <a routerLink='/insights'>Insights</a> |
+    <a routerLink='/manageaccount'>Manage Accounts</a> |
+    <a routerLink='/buy-sell-and-view-investment'>Buy Sell and View Investment</a> |
+    <a routerLink='/deposit-withdraw-and-view-cash-accounts'>Deposit Withdraw And View Cash Accounts</a>
+  </nav>
+  <h2>Portfolio Manager</h2>
+  <p>{{today | date:"full"}}</p>
+  <p>Net Worth : {{netvalue}} USD</p>
+  <section>
+    <h3>Investment Accounts</h3>
+    <select  class="form-control" (change)="onChange($event)">
+      <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
+    </select>
+    <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
+    <h3>Cash Accounts</h3>
+    <select class="form-control" (change)="onChange($event)" >
+      <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
+    </select>
+    <button (click) = 'retrieveBasicCashData()'>Go</button>
+
+    <aside>
+      <div>Display Account information here</div>
+      <p>Account Number: {{account_number}}</p>
+      <p>Account Type: {{account_type}}</p>
+      <p>Account Value: {{account_value}}</p>
+    </aside>
+  </section>
+  <!-- here we can bind to the daa models -->
+  <!-- the | is 'pipe' in this case for date -->
+  <!-- the {{}} are called interpolation binding -->
+  <!-- ask the user to agree to cookies -->
+  <!-- the () are one-way event binding OUT of the component -->
+  <!-- structural directives AWLAYS start with an asterisk * -->
+
+
+
+  <!-- or... -->
+  <!-- Turns out we don't even need a <form> tag! -->
+    <!-- <input placeholder='Facebook image' required [(ngModel)]='fbImage' />
+    <br/>
+    <img src='https://graph.facebook.com/{{fbImage}}/picture?type=normal'> -->
+
+  <hr/>
+  <!-- here is where routed content will appear it is mutually exclusive content-->
+  <router-outlet></router-outlet>
+</article>
