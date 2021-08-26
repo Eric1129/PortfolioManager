@@ -22,6 +22,9 @@ export class MarketMoversComponent implements OnInit {
   DWJChange = 0.0;
   NASDAQChange = 0.0;
 
+  Gainer = ["","","","",""];
+  Loser = ["","","","",""]
+
   ngOnInit(): void {
     setInterval(() => {
       this.retriveSAP500();
