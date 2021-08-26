@@ -33,4 +33,14 @@ export class ApiService {
   getCashAccountValue(params={account_number: 0}){
     return this.http.get(`http://localhost:8000/portfolio/cash_accounts/value/${params.account_number}`)
   }
+
+  getSAP500(){
+    return this.http.get("http://localhost:8000/portfolio/marketindices/SAP500");
+  }
+  getDWJ(){
+    return this.http.get("http://localhost:8000/portfolio/marketindices/DWJ");
+  }
+  getNSDQ(){
+    return this.http.get("http://localhost:8000/portfolio/marketindices/NSDQ");
+  }
 }
