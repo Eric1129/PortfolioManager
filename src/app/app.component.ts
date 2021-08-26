@@ -8,10 +8,7 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent {
   constructor(private apiService: ApiService) { 
-    this.apiService.getNetWorth()
-      .subscribe( (data:any)=>{
-        this.netvalue = data
-      } )
+
 
       this.apiService.getAllCashAccounts()
       .subscribe( (data: any) => {
@@ -22,10 +19,13 @@ export class AppComponent {
       .subscribe( (data: any) => {
         this.investmentAccounts = data
       } )
+      this.retriveNetWorth()
+      this.retriveTotalInvestmentValue()
+      this.retriveTotalCashValue()
   }
   title = 'PortfolioManager';
   today = new Date();
-  netvalue = 0;
+  
   cashAccounts = [
     {accountNumber: 45234242},
     {accountNumber: 44444563},
@@ -34,8 +34,6 @@ export class AppComponent {
 
    ];
    
-
-
   investmentAccounts = [
     {accountNumber: 53235255},
     {accountNumber: 45246654},
@@ -43,8 +41,9 @@ export class AppComponent {
     {accountNumber: 14365425}
   ];
 
-
-
+  @Input() netvalue = 0;
+  @Input() totalcashvalue = 0;
+  @Input() totalinvestmentvalue = 0;
   @Input() account_number:number = 0;
   @Input() account_value:number = 0;
   @Input() account_type:string = "";
@@ -53,7 +52,7 @@ export class AppComponent {
     this.account_number = $event.target.options[$event.target.options.selectedIndex].text;
   }
 
-  makeServiceCall(){
+  retriveNetWorth(){
     // we call the service method by subscribing to it
     // remember the api call will be async so subscribing responds when it returns
     // this.typicodeService.getApiData({category:this.category, id:this.id})
@@ -62,6 +61,27 @@ export class AppComponent {
         this.netvalue = data
       } )
   }
+
+  retriveTotalCashValue(){
+    // we call the service method by subscribing to it
+    // remember the api call will be async so subscribing responds when it returns
+    // this.typicodeService.getApiData({category:this.category, id:this.id})
+    this.apiService.getTotalCashValue()
+      .subscribe( (data:any)=>{
+        this.totalcashvalue = data
+      } )
+  }
+
+  retriveTotalInvestmentValue(){
+    // we call the service method by subscribing to it
+    // remember the api call will be async so subscribing responds when it returns
+    // this.typicodeService.getApiData({category:this.category, id:this.id})
+    this.apiService.getTotalInvestmentValue()
+      .subscribe( (data:any)=>{
+        this.totalinvestmentvalue = data
+      } )
+  }
+
   
   retrieveBasicInvestmentData(){
     this.account_type = "investment"

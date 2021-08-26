@@ -23,6 +23,12 @@ export class ApiService {
   getNetWorth(){
     return this.http.get("http://localhost:8000/portfolio/networth");
   }
+  getTotalCashValue(){
+    return this.http.get("http://localhost:8000/portfolio/cashvalue");
+  }
+  getTotalInvestmentValue(){
+    return this.http.get("http://localhost:8000/portfolio/investmentvalue");
+  }
 
   getCashAccountValue(params={account_number: 0}){
     return this.http.get(`http://localhost:8000/portfolio/cash_accounts/value/${params.account_number}`)
