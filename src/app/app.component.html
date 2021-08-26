@@ -1,19 +1,17 @@
 <div class="container divtop">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#D4F1F4;">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" routerLink='/cash-flow'>Cash Flow</a>
-            <a class="nav-link" routerLink='/market-movers'>Market Movers</a>
-            <a class="nav-link" routerLink='/insights'>Insights</a>
-            <a class="nav-link" routerLink='/manageaccount'>Manage Accounts</a>
-            <a class="nav-link" routerLink='/buy-sell-and-view-investments'>Buy Sell and View Investment</a>
-            <a class="nav-link" routerLink='/deposit-withdraw-and-view-cash-accounts'>Deposit Withdraw And View Cash Accounts</a>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#D4F1F4;">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" routerLink='/cash-flow'>Cash Flow</a>
+          <a class="nav-link" routerLink='/market-movers'>Market Movers</a>
+          <a class="nav-link" routerLink='/insights'>Insights</a>
+          <a class="nav-link" routerLink='/manageaccount'>Manage Accounts</a>
         </div>
+      </div>
     </div>
-    </div>
-    </nav>
-    </div>
+  </nav>
+</div>
     <p class="text-center fontp">Portfolio Manager</p>
     <hr/>
 <!--Adding the time-->
@@ -30,34 +28,27 @@
     <p>Net Worth : {{netvalue}} USD</p>
     </div>
 </div>
-<hr/>
-    <section>
-      <p>Investment Accounts</p>
-      <select  class="form-control" (change)="onChange($event)">
-        <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
-      </select>
-      <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
-      <h3>Cash Accounts</h3>
-      <select class="form-control" (change)="onChange($event)" >
-        <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
-      </select>
-      <button (click) = 'retrieveBasicCashData()'>Go</button>
-  
-      <aside>
-        <div>Display Account information here</div>
-        <p>Account Number: {{account_number}}</p>
-        <p>Account Type: {{account_type}}</p>
-        <p>Account Value: {{account_value}}</p>
-      </aside>
-    </section>
+
+<!--Adding the net worth value-->
+<div class="row">
+  <div class="col-md-3"> 
+  <p>Net Worth : {{totalinvestmentvalue}} USD</p>
+  </div>
+</div>
+
+<!--Adding the net worth value-->
+<div class="row">
+  <div class="col-md-3"> 
+  <p>Total Cash Value : {{totalcashvalue}} USD</p>
+  </div>
+</div>
+
     <!-- here we can bind to the daa models -->
     <!-- the | is 'pipe' in this case for date -->
     <!-- the {{}} are called interpolation binding -->
     <!-- ask the user to agree to cookies -->
     <!-- the () are one-way event binding OUT of the component -->
     <!-- structural directives AWLAYS start with an asterisk * -->
-  
-  
   
     <!-- or... -->
     <!-- Turns out we don't even need a <form> tag! -->
