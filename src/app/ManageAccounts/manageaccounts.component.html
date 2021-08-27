@@ -1,8 +1,8 @@
   <!-- <label for="fvalue">Value</label><br>
  <input type="number" id="fname" name="fname"><br> -->
- 
+
     <p class="fontp">Manage Accounts</p>
-    <p class="subp">Investment Accounts</p>
+    <p class="alignselect subp">Investment Accounts</p>
 
     <select class="alignselect" [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
       <option value="" selected >Choose here</option>
@@ -10,9 +10,7 @@
     </select>
     <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
 
-    
     <ng-container class="ng-align" *ngIf="showInvestmentAccountData">
-    
         <aside>
             <h4>Investment account information</h4>
             <p class="alignselect">Account Number: {{account_number_display}}</p>
@@ -128,7 +126,7 @@
         <button class="new-btn-align"(click) = deleteNo()>No</button>
     </ng-container>
 
-    <ng-container *ngIf="showDeleteAccountMessage">
+    <ng-container class="alignselect" *ngIf="showDeleteAccountMessage">
         <p>Account {{delete_account_number}} has been deleted</p>
     </ng-container>
     <!-- <p>{{new_account_type}}</p>
