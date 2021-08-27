@@ -6,7 +6,7 @@
     <input type="number" id="fname" name="fname"><br> -->
  
 
-    <h3>Investment Accounts</h3>
+    <p class="fontp">Investment Accounts</p>
     <select [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
       <option value="" selected >Choose here</option>
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
@@ -132,4 +132,4 @@
     <!-- <p>{{new_account_type}}</p>
     <p>{{new_account_number}}</p> -->
 
-
+  
