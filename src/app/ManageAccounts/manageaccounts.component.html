@@ -1,25 +1,24 @@
-
-
-<form>
-
-        <!-- <label for="fvalue">Value</label><br>
-    <input type="number" id="fname" name="fname"><br> -->
+  <!-- <label for="fvalue">Value</label><br>
+ <input type="number" id="fname" name="fname"><br> -->
  
+    <p class="fontp">Manage Accounts</p>
+    <p class="subp">Investment Accounts</p>
 
-    <p class="fontp">Investment Accounts</p>
-    <select [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
+    <select class="alignselect" [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
       <option value="" selected >Choose here</option>
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
 
-    <ng-container *ngIf="showInvestmentAccountData">
+    
+    <ng-container class="ng-align" *ngIf="showInvestmentAccountData">
+    
         <aside>
             <h4>Investment account information</h4>
-            <p>Account Number: {{account_number_display}}</p>
+            <p class="alignselect">Account Number: {{account_number_display}}</p>
             <!-- <p>Account Type: {{account_type}}</p> -->
-            <p>Account Value: {{investment_account_obj.account_value}}</p> 
-            <select [(ngModel)] = "investments_list" name="investments_list" id="investments_list">
+            <p class="p-align-sub">Account Value: {{investment_account_obj.account_value}}</p> 
+            <select class="alignselect"[(ngModel)] = "investments_list" name="investments_list" id="investments_list">
                 <option value="" selected >Choose here</option>
                 <option *ngFor="let option of investmentList">{{option.ticker}}</option>
             </select>
@@ -33,30 +32,30 @@
 
         <aside>
             <h5>Purchase Investment</h5>
-            <label for="investment_purchase_cash_account">Enter Cash Account</label>
+            <label class="label-align" for="investment_purchase_cash_account">Enter Cash Account</label>
             <input [(ngModel)] = investment_purchase_cash_account type="text" id="investment_purchase_cash_account" name="investment_purchase_cash_account"><br>
 
-            <label for="investment_purchase_ticker">Enter Investment Ticker</label>
+            <label class="label-align" for="investment_purchase_ticker">Enter Investment Ticker</label>
             <input [(ngModel)] = investment_purchase_ticker type="text" id="investment_purchase_ticker" name="investment_purchase_ticker"><br>
 
-            <label for="investment_purchase_amount">Enter Amount</label>
+            <label class="label-align" for="investment_purchase_amount">Enter Amount</label>
             <input [(ngModel)] = investment_purchase_amount type="text" id="investment_purchase_amount" name="investment_purchase_amount"><br>
 
-            <button (click) = purchaseInvestment()>Submit</button>
+            <button class="btn-align" (click) = purchaseInvestment()>Submit</button>
         </aside>
 
         <aside>
             <h5>Sell Investment</h5>
-            <label for="investment_sale_cash_account">Enter Cash Account</label>
+            <label class="label-align" for="investment_sale_cash_account">Enter Cash Account</label>
             <input [(ngModel)] = investment_sale_cash_account type="text" id="investment_sale_cash_account" name="investment_sale_cash_account"><br>
 
-            <label for="investment_sale_ticker">Enter Investment Ticker</label>
+            <label class="label-align" for="investment_sale_ticker">Enter Investment Ticker</label>
             <input [(ngModel)] = investment_sale_ticker type="text" id="investment_sale_ticker" name="investment_sale_ticker"><br>
 
-            <label for="investment_sale_amount">Enter Amount</label>
+            <label class="label-align" for="investment_sale_amount">Enter Amount</label>
             <input [(ngModel)] = investment_sale_amount type="text" id="investment_sale_amount" name="investment_sale_amount"><br>
 
-            <button (click) = sellInvestment()>Submit</button>
+            <button  class="btn-align" (click) = sellInvestment()>Submit</button>
         </aside>
 
     </ng-container>
