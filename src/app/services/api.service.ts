@@ -71,11 +71,11 @@ export class ApiService {
   }
 
   depositCash(params={account_number:0, amount:0}){
-    return this.http.put(`http://localhost:8000/portfolio/deposit/${params.account_number}/${params.amount}`, {})
+    return this.http.post(`http://localhost:8000/portfolio/cash_accounts/deposit/${params.account_number}/${params.amount}`, {})
   }
 
   withdrawCash(params={account_number:0, amount:0}){
-    return this.http.put(`http://localhost:8000/portfolio/withdraw/${params.account_number}/${params.amount}`, {})
+    return this.http.post(`http://localhost:8000/portfolio/cash_accounts/withdraw/${params.account_number}/${params.amount}`, {})
   }
 
   getInvestmentList(params={account_number:0}){

@@ -8,6 +8,7 @@
 
     <h3>Investment Accounts</h3>
     <select [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
+      <option value="" selected >Choose here</option>
       <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
@@ -18,9 +19,16 @@
             <p>Account Number: {{account_number_display}}</p>
             <!-- <p>Account Type: {{account_type}}</p> -->
             <p>Account Value: {{investment_account_obj.account_value}}</p> 
-            <select name="investments_list" id="investments_list">
+            <select [(ngModel)] = "investments_list" name="investments_list" id="investments_list">
+                <option value="" selected >Choose here</option>
                 <option *ngFor="let option of investmentList">{{option.ticker}}</option>
             </select>
+            <button (click) = showInvestmentData()>View position</button>
+            <ng-container *ngIf="showInvestmentsInAccount">
+               <p> Ticker: {{investments_data.ticker}} </p>
+               <p> Amount held: {{investments_data.amount}} </p>
+               <p> Current price {{investments_data.current_price}} </p>
+            </ng-container>
         </aside>
 
         <aside>
@@ -56,6 +64,7 @@
 
     <h3>Cash Accounts</h3>
     <select  [(ngModel)]='cash_account_obj.account_number' name='account_number'>
+        <option value="" selected >Choose here</option>
       <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
     <button (click) = 'retrieveBasicCashData()'>Go</button>
@@ -80,7 +89,7 @@
         <aside>
             <h5>Withdraw Funds</h5>
 
-            <label for="cash_withdrawal_amount">Enter Withdrawal Account</label>
+            <label for="cash_withdrawal_amount">Enter Withdrawal Amount</label>
             <input [(ngModel)] = cash_withdrawal_amount type="text" id="cash_withdrawal_amount" name="cash_withdrawal_amount"><br>
 
             <button (click) = withdrawCash()>Submit</button>
@@ -94,6 +103,7 @@
 
     <label>Choose an account type:</label><br>
     <select [(ngModel)] = new_account_type name="new_account_type" id="new_account_type">
+        <option value="" selected >Choose here</option>
         <option value="investment">Investment</option>
         <option value="cash">Cash</option>
     </select>

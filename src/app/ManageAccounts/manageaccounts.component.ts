@@ -56,6 +56,8 @@ export class ManageaccountsComponent implements OnInit {
 
   showInvestmentAccountData = false;
 
+  showInvestmentsInAccount = false;
+
   cashAccounts = [
     {accountNumber: 45234242},
     {accountNumber: 44444563},
@@ -93,6 +95,10 @@ export class ManageaccountsComponent implements OnInit {
 
   cash_deposit_amount = 0
 
+  investments_list = 'select a ticker';
+  
+  investments_data = {ticker: "TSLA", amount: 0, current_price: 0};
+
   ngOnInit(): void {
   }
 
@@ -102,6 +108,7 @@ export class ManageaccountsComponent implements OnInit {
     this.showDeleteAccountMessage = false;
     this.warnAccountDelete = false;
     this.showNewAccountData = false;
+    this.showInvestmentsInAccount = false;
   }
   retrieveBasicInvestmentData(){
     this.resetVariables();
@@ -203,4 +210,13 @@ export class ManageaccountsComponent implements OnInit {
     })
   }
 
+  showInvestmentData(){
+    this.showInvestmentsInAccount = true;
+    let i = 0;
+    for(i = 0; i < this.investmentList.length; i++){
+      if(this.investmentList[i].ticker === this.investments_list){
+        this.investments_data = this.investmentList[i]
+      }
+    }
+  }
 }
