@@ -53,6 +53,9 @@ export class AppComponent {
     setInterval(() => {
       this.today = Date.now();
       console.log(this.today);
+      this.retriveNetWorth()
+      this.retriveTotalInvestmentValue()
+      this.retriveTotalCashValue()
     }, 1000);
   }
 
