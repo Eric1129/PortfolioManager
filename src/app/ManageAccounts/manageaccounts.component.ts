@@ -66,8 +66,6 @@ export class ManageaccountsComponent implements OnInit {
 
    ];
    
-
-
   investmentAccounts = [
     {accountNumber: 53235255},
     {accountNumber: 45246654},
