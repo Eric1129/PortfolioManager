@@ -1,34 +1,72 @@
-<p>Add a new account </p>
+<p class="text-center fontp">Add a new account </p>
 
 <form>
-    <label for="fid">Account ID</label><br>
-    <input type="text" id="fid" name="fid"><br>
-
-    <label>Choose an account type:</label><br>
-    <select name="account" id="account">
+<div class="row form-space">
+  <div class="col">
+    <label for="fid">Account ID</label>
+    <input type="text" class="form-control" id="fid" name="fid" placeholder="Enter account ID">
+  </div>
+  <div class="col">
+    <label>Choose an account type:</label>
+    <div class="col">
+    <select name="account" id="account" class="form-space" style="width:70%; height:50%;">
         <option value="investment">Investment</option>
         <option value="cash">Cash</option>
-    </select>
+    </select><br/>
+  </div>
+    <div class="divbtn btn-block">
+    <button>Add</button>
+    </div>
+  </div>
     <br/>
         <!-- <label for="fvalue">Value</label><br>
     <input type="number" id="fname" name="fname"><br> -->
-    <button >Add</button>
+        </div>
+        </form>
+        <form>
+          <div class="row form-space">
+            <div class="col">
+              <label>Investment Accounts</label>
+              <div class="col">
+              <select>
+                <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
+              </select>      
+              </div> 
+            </div>
+            <div class="divbtn">
+              <button class="btn-md" (click)='retrieveBasicInvestmentData()' >Go</button>
+              </div>
+        
+           
+            <div class="col">
 
-    <h3>Investment Accounts</h3>
-    <select>
-      <option *ngFor="let item of investmentAccounts"> {{item.accountNumber}}</option>
-    </select>
-    <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
-    <h3>Cash Accounts</h3>
-    <select>
-      <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
-    </select>
-    <button (click) = 'retrieveBasicCashData()'>Go</button>
+              <label>Cash Account</label>
+              <div class="col">
+              <select>
+
+                <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
+              </select>     
+            </div>
+              <div class="divbtn">
+              <button (click) = 'retrieveBasicCashData()'>Go</button>
+            </div>
+
+            </div>
+          </div>
+        </form>
+    
+     
+     
+    
+      
+    
+      
     <aside>
         <div>Display Account information here</div>
         <!-- <p>Account Number: {{account_number}}</p>
         <p>Account Type: {{account_type}}</p>
         <p>Account Value: {{account_value}}</p> -->
       </aside>
+  
 
-  </form>
+

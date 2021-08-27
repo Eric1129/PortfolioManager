@@ -15,32 +15,33 @@
     <p class="text-center fontp">Portfolio Manager</p>
     <hr/>
 <!--Adding the time-->
-    <div class="row">
-        <div class="col-md-3"> 
+    <!-- <div class="row">
+        <div class="col-md-3">  -->
         <p>{{today | date:"full"}}</p>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
     
-<!--Adding the net worth value-->
-<div class="row">
-    <div class="col-md-3"> 
-    <p>Net Worth : {{netvalue}} USD</p>
-    </div>
-</div>
-<!--Adding the total cash value-->
-<div class="row">
-  <div class="col-md-3"> 
-  <p>Total Cash Value : {{totalcashvalue}} USD</p>
-  </div>
-</div>
-<!--Adding the investment value-->
-<div class="row">
-  <div class="col-md-3"> 
-  <p>Total Investment Value : {{totalinvestmentvalue}} USD</p>
-  </div>
-</div>
-
-
+    <div class="flex-container">
+        <div class=" card" style="width: 20rem; padding: 2px;">
+            <div class="card-body">
+                <h5 class="card-title">Net Worth</h5>
+                <p class="cardp">{{netvalue}}</p>
+            </div>
+        </div>
+        <div class=" card" style="width: 20rem; padding: 2px;">
+            <div class="card-body">
+                <h5 class="card-title">Total Cash Value</h5>
+                <p class="cardp">{{totalcashvalue}}</p>
+            </div>
+            </div>
+            <div class=" card" style="width: 20rem; padding: 2px;">
+                <div class="card-body">
+                    <h5 class="card-title">Total Investment Value</h5>
+                    <p class="cardp">{{totalinvestmentvalue}}</p>
+                </div>
+      </div>
+      </div>
+    <br/>
 
     <!-- here we can bind to the daa models -->
     <!-- the | is 'pipe' in this case for date -->
