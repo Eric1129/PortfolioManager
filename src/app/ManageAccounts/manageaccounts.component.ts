@@ -1,4 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
+import { stringify } from '@angular/compiler/src/util';
 import { Component, Input, OnInit, TRANSLATIONS } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
@@ -20,6 +21,7 @@ export class ManageaccountsComponent implements OnInit {
       this.investmentAccounts = data
     } )
   }
+  
 
   // @Input() account_number:number = 0;
   // @Input() account_value:number = 0;
@@ -196,9 +198,11 @@ export class ManageaccountsComponent implements OnInit {
     this.apiService.depositCash({
       account_number: this.cash_account_obj.account_number,
       amount: this.cash_deposit_amount
+      
     }).subscribe( (data:any) => {
       this.retrieveBasicCashData();
     })
+    
   }
 
   withdrawCash(){

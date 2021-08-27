@@ -55,3 +55,48 @@ p {
 .btn-align{
     margin-left: 150px;
 }
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin-left: 20px;
+}
+.new-acct-align{
+    display: flex;
+}
+.new-acct-align{
+    display: block;
+    text-align: center;
+    font-family:'Playfair Display', serif;
+    
+    
+
+    margin-left: 972px;
+    margin-top: -152px;
+    padding-top: -144px;
+    /* padding-bottom: 126px; */
+    /* align-content: center; */
+    /* justify-content: space-evenly; */
+    /* align-items: flex-end; */
+}
+.new-label-align{
+    font-family: Arial, Helvetica, sans-serif;
+}
+hr{
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 40px;
+ 
+}
+label.alignselect {
+    padding-left: 153px;
+}
+.new-btn-align{
+margin-left: 150px;
+margin-top:20px;
+}
+.p-label-align{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 111px;
+}
