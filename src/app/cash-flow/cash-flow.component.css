@@ -1,0 +1,13 @@
+.fontp{
+    font-family:'Playfair Display', serif;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    
+}
+.btn-space {
+    margin-right: 5px;
+    
+}
+.d-md-block{
+    text-align: center;
+}

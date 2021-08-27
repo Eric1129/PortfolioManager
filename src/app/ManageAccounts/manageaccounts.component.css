@@ -1,0 +1,16 @@
+.fontp{
+    font-family:'Playfair Display', serif;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    
+}
+.form-space{
+    padding-left: 20px;
+}
+label{
+padding-left: 20px;
+}
+.divbtn{
+    padding-top: 5px;
+    padding-left: 30px;
+}
