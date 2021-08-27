@@ -59,4 +59,26 @@ export class ApiService {
   getNSDQChange(){
     return this.http.get("http://localhost:8000/portfolio/marketindices/NSDQ/change");
   }
+
+  purchaseInvestment(params={account_number: 0, cash_account_number: 0, ticker: '', amount: 0}){
+    return this.http.post(`http://localhost:8000/investment/buy/`, 
+    {accountNumber: params.account_number, cashAccountNumber: params.cash_account_number, ticker: params.ticker, amount: params.amount})
+  }
+
+  sellInvestment(params={account_number: 0, cash_account_number: 0, ticker: '', amount: 0}){
+    return this.http.post(`http://localhost:8000/investment/sell/`, 
+    {accountNumber: params.account_number, cashAccountNumber: params.cash_account_number, ticker: params.ticker, amount: params.amount})
+  }
+
+  depositCash(params={account_number:0, amount:0}){
+    return this.http.put(`http://localhost:8000/portfolio/deposit/${params.account_number}/${params.amount}`, {})
+  }
+
+  withdrawCash(params={account_number:0, amount:0}){
+    return this.http.put(`http://localhost:8000/portfolio/withdraw/${params.account_number}/${params.amount}`, {})
+  }
+
+  getInvestmentList(params={account_number:0}){
+    return this.http.get(`http://localhost:8000/investment/investments/${params.account_number}`)
+  }
 }

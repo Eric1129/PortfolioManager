@@ -1,5 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TRANSLATIONS } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -73,6 +73,10 @@ export class ManageaccountsComponent implements OnInit {
     {accountNumber: 14365425}
   ];
 
+  investmentList = [
+    {ticker: "TSLA", amount: 0, current_price: 0}
+  ]
+
   investment_purchase_cash_account = 0
 
   investment_purchase_ticker = ''
@@ -106,6 +110,10 @@ export class ManageaccountsComponent implements OnInit {
       this.investment_account_obj.account_value = data
       this.account_number_display = this.investment_account_obj.account_number
       this.showInvestmentAccountData = true;
+    })
+    this.apiService.getInvestmentList({account_number: this.investment_account_obj.account_number})
+    .subscribe( (data:any) => {
+      this.investmentList = data
     })
   }
 
@@ -146,7 +154,53 @@ export class ManageaccountsComponent implements OnInit {
       this.showDeleteAccountMessage = true;
     })
   }
+
   deleteNo(){
     this.resetVariables();
   }
+
+  purchaseInvestment(){
+    this.apiService.purchaseInvestment({
+      account_number: this.investment_account_obj.account_number, 
+      cash_account_number: this.investment_purchase_cash_account,
+      ticker: this.investment_purchase_ticker,
+      amount: this.investment_purchase_amount})
+      .subscribe( (data: any) => {
+        // this.cash_account_obj.account_number = this.investment_purchase_cash_account
+        // this.retrieveBasicCashData();
+        this.retrieveBasicInvestmentData();
+      })
+  }
+
+  sellInvestment(){
+    this.apiService.sellInvestment({
+      account_number: this.investment_account_obj.account_number, 
+      cash_account_number: this.investment_sale_cash_account,
+      ticker: this.investment_sale_ticker,
+      amount: this.investment_sale_amount})
+      .subscribe( (data: any) => {
+        // this.cash_account_obj.account_number = this.investment_purchase_cash_account
+        // this.retrieveBasicCashData();
+        this.retrieveBasicInvestmentData();
+      })    
+  }
+
+  depositCash(){
+    this.apiService.depositCash({
+      account_number: this.cash_account_obj.account_number,
+      amount: this.cash_deposit_amount
+    }).subscribe( (data:any) => {
+      this.retrieveBasicCashData();
+    })
+  }
+
+  withdrawCash(){
+    this.apiService.withdrawCash({
+      account_number: this.cash_account_obj.account_number,
+      amount: this.cash_withdrawal_amount
+    }).subscribe( (data:any) => {
+      this.retrieveBasicCashData();
+    })
+  }
+
 }

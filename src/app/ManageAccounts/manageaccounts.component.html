@@ -18,6 +18,9 @@
             <p>Account Number: {{account_number_display}}</p>
             <!-- <p>Account Type: {{account_type}}</p> -->
             <p>Account Value: {{investment_account_obj.account_value}}</p> 
+            <select name="investments_list" id="investments_list">
+                <option *ngFor="let option of investmentList">{{option.ticker}}</option>
+            </select>
         </aside>
 
         <aside>
@@ -31,7 +34,23 @@
             <label for="investment_purchase_amount">Enter Amount</label>
             <input [(ngModel)] = investment_purchase_amount type="text" id="investment_purchase_amount" name="investment_purchase_amount"><br>
 
+            <button (click) = purchaseInvestment()>Submit</button>
         </aside>
+
+        <aside>
+            <h5>Sell Investment</h5>
+            <label for="investment_sale_cash_account">Enter Cash Account</label>
+            <input [(ngModel)] = investment_sale_cash_account type="text" id="investment_sale_cash_account" name="investment_sale_cash_account"><br>
+
+            <label for="investment_sale_ticker">Enter Investment Ticker</label>
+            <input [(ngModel)] = investment_sale_ticker type="text" id="investment_sale_ticker" name="investment_sale_ticker"><br>
+
+            <label for="investment_sale_amount">Enter Amount</label>
+            <input [(ngModel)] = investment_sale_amount type="text" id="investment_sale_amount" name="investment_sale_amount"><br>
+
+            <button (click) = sellInvestment()>Submit</button>
+        </aside>
+
     </ng-container>
 
 
@@ -47,6 +66,24 @@
             <p>Account Number: {{account_number_display}}</p>
             <!-- <p>Account Type: {{account_type}}</p> -->
             <p>Account Value: {{cash_account_obj.account_value}}</p> 
+        </aside>
+
+        <aside>
+            <h5>Deposit Funds</h5>
+
+            <label for="cash_deposit_amount">Enter Deposit Amount</label>
+            <input [(ngModel)] = cash_deposit_amount type="text" id="cash_deposit_amount" name="cash_deposit_amount"><br>
+
+            <button (click) = depositCash()>Submit</button>
+        </aside>
+
+        <aside>
+            <h5>Withdraw Funds</h5>
+
+            <label for="cash_withdrawal_amount">Enter Withdrawal Account</label>
+            <input [(ngModel)] = cash_withdrawal_amount type="text" id="cash_withdrawal_amount" name="cash_withdrawal_amount"><br>
+
+            <button (click) = withdrawCash()>Submit</button>
         </aside>
     </ng-container>
 
