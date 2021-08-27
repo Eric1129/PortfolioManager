@@ -1,8 +1,8 @@
   <!-- <label for="fvalue">Value</label><br>
  <input type="number" id="fname" name="fname"><br> -->
- 
-    <p class="fontp">Manage Accounts</p>
-    <p class="subp">Investment Accounts</p>
+
+    <h2>Manage Accounts</h2>
+    <h3 class="alignselect subp">Investment Accounts</h3>
 
     <select class="alignselect" [(ngModel)]='investment_account_obj.account_number ' name='account_number'>
       <option value="" selected >Choose here</option>
@@ -10,9 +10,7 @@
     </select>
     <button (click) = 'retrieveBasicInvestmentData()'>Go</button>
 
-    
-    <ng-container class="ng-align" *ngIf="showInvestmentAccountData">
-    
+    <ng-container class="0 auto ng-align" *ngIf="showInvestmentAccountData">
         <aside>
             <h4>Investment account information</h4>
             <p class="alignselect">Account Number: {{account_number_display}}</p>
@@ -62,7 +60,7 @@
 
 
     <h3>Cash Accounts</h3>
-    <select  [(ngModel)]='cash_account_obj.account_number' name='account_number'>
+    <select class="alignselect" [(ngModel)]='cash_account_obj.account_number' name='account_number'>
         <option value="" selected >Choose here</option>
       <option *ngFor="let item of cashAccounts"> {{item.accountNumber}}</option>
     </select>
@@ -97,11 +95,11 @@
 
 
     <h3>Add new account</h3>
-    <label for="fid">Account Number</label><br>
-    <input [(ngModel)] = new_account_number type="text" id="new_account_number" name="new_account_number"><br>
+    <label class="alignselect" for="fid">Account Number</label><br>
+    <input class="alignselect" [(ngModel)] = new_account_number type="text" id="new_account_number" name="new_account_number"><br>
 
     <label>Choose an account type:</label><br>
-    <select [(ngModel)] = new_account_type name="new_account_type" id="new_account_type">
+    <select class="alignselect" [(ngModel)] = new_account_type name="new_account_type" id="new_account_type">
         <option value="" selected >Choose here</option>
         <option value="investment">Investment</option>
         <option value="cash">Cash</option>
@@ -115,17 +113,17 @@
     <p>{{new_account_number}}</p> -->
 
     <h3>Delete Account</h3>
-    <label for="fid">Account Number</label><br>
-    <input [(ngModel)] = delete_account_number type="text" id="delete_account_number" name="delete_account_number"><br>
+    <label class="alignselect" for="fid">Account Number</label><br>
+    <input class="alignselect" [(ngModel)] = delete_account_number type="text" id="delete_account_number" name="delete_account_number"><br>
 
-    <button (click) = deleteStart()>Delete</button>
+    <button class="alignselect" (click) = deleteStart()>Delete</button>
     <ng-container *ngIf="warnAccountDelete">
         <p>Are you sure you want to delete this account?</p>
         <button (click) = deleteYes()>Yes</button>
         <button (click) = deleteNo()>No</button>
     </ng-container>
 
-    <ng-container *ngIf="showDeleteAccountMessage">
+    <ng-container class="alignselect" *ngIf="showDeleteAccountMessage">
         <p>Account {{delete_account_number}} has been deleted</p>
     </ng-container>
     <!-- <p>{{new_account_type}}</p>
