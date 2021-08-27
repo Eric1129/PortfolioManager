@@ -2,30 +2,31 @@
 <p class="text-center fontp"> Market Indices</p>
 </div>
 
-
-
-  <div class="flex-container">
-        <div class=" card" style="width: 20rem; padding: 2px;">
-            <div class="card-body">
-                <h5 class="card-title">SAP 500</h5>
-                <p class="cardp">{{SAP}} {{SAPChange}}%</p>
-            </div>
+<div class="flex-container">
+    <div class=" card" style="width: 20rem; padding: 2px;">
+        <div class="card-body">
+            <h5 class="card-title">SAP 500</h5>
+            <p class="cardp" [style.color]="SAPChange>0 ? 'green' : 'red'">{{SAP}}</p>
+            <p class="cardp" [style.color]="SAPChange>0 ? 'green' : 'red'">{{SAPChange}}%</p>
         </div>
-        <div class=" card" style="width: 20rem; padding: 2px;">
-            <div class="card-body">
-                <h5 class="card-title">DOW JONES</h5>
-                <p class="cardp">{{DWJ}}  {{DWJChange}}%</p>
-            </div>
-            </div>
-            <div class=" card" style="width: 20rem; padding: 2px;">
-                <div class="card-body">
-                    <h5 class="card-title">NASDAQ</h5>
-                    <p class="cardp">{{NASDAQ}}  {{NASDAQChange}}%</p>
-                </div>
-      </div>
-      </div>
+    </div>
+    <div class=" card" style="width: 20rem; padding: 2px;">
+        <div class="card-body">
+            <h5 class="card-title">DOW JONES</h5>
+            <p class="cardp" [style.color]="DWJChange>0 ? 'green' : 'red'">{{DWJ}}</p>
+            <p class="cardp" [style.color]="DWJChange>0 ? 'green' : 'red'">{{DWJChange}}%</p>
+        </div>
+    </div>
+    <div class=" card" style="width: 20rem; padding: 2px;">
+        <div class="card-body">
+            <h5 class="card-title">NASDAQ</h5>
+            <p class="cardp" [style.color]="NASDAQChange>0 ? 'green' : 'red'">{{NASDAQ}}   </p>
+            <p class="cardp" [style.color]="NASDAQChange>0 ? 'green' : 'red'">{{NASDAQChange}}%</p>
+        </div>
+    </div>
+ </div>
 
-
+<!-- 
 <p>Top 5 Gainers</p>
 
-<p>Top 5 Losers</p>
+<p>Top 5 Losers</p> -->

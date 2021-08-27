@@ -30,7 +30,7 @@ export class MarketMoversComponent implements OnInit {
       this.retriveSAP500();
       this.retriveDWJ()
       this.retriveNSDQ()
-    }, 30000);
+    }, 10000);
   }
 
   retriveSAP500(){
